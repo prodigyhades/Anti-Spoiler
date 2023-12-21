@@ -1,0 +1,17 @@
+{
+    "name": "Anti-spoiler extension",
+    "version": "0.0.1",
+    "description": "To save you from spoilers",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "serviceWorker.js"
+    },
+    "host_permissions": ["<all_urls>"],
+    "permissions": ["scripting", "storage"],
+    "action": {
+        "default_popup": "opt.html",
+        "default_icon": {
+            "48": "images/icon.png"
+        }
+    }
+}

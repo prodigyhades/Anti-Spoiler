@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replaceWords Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: grid;
+            background-color: #FAF9F6;
+            padding: 20px;
+            color: #333;
+            margin-right: 700px;
+        }
+
+        .keywords-holder {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: visible;
+        }
+
+        .keyword-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .keyword-row div {
+            margin-right: 10px;
+        }
+
+        .input-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            padding: 8px;
+            position: relative;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .input-item.type select {
+            width: 140px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-item.type select option {
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .remove,
+        .add-keyword,
+        #save {
+            display: block;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 10px;
+            color: #fff;
+        }
+
+        .remove {
+            background-color: #ff6666;
+        }
+
+        .remove:hover {
+            background-color: #ff4d4d;
+        }
+
+        .add-keyword {
+            margin-top: 10px;
+            background-color: #66ccff;
+            height: 40px;
+            width: 150px;
+        }
+
+        .add-keyword:hover {
+            background-color: #4da6ff;
+        }
+
+        #save {
+            background-color: #5cb85c;
+            height: 40px;
+            width: 150px;
+        }
+
+        #save:hover {
+            background-color: #4cae4c;
+        }
+
+        #status {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Add this CSS for the search box */
+        .search-box {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Add a search box -->
+    <div class="search-box">
+        <label for="search">Search Keywords:</label>
+        <input type="text" id="search" oninput="filterKeywords()">
+    </div>
+
+    <div id="no-match-message" style=" width: 500px; display: none; color: #ff0000; margin-top: 10px;">
+        No keywords match your search! Maybe you want to add a new keyword?
+    </div>
+
+
+    <div class="keywords-holder">
+        <div class="keyword-row">
+            <div><button class="remove">Remove</button></div>
+            <div class="input-item keyword">
+                <label>Keyword</label>
+                <input type="text" value="" placeholder="Keyword...">
+            </div>
+            <div class="input-item type">
+                <label>Select Type</label>
+                <select>
+                    <option value="0">Remove</option>
+                    <option value="1">Replace</option>
+                    <option value="2">Blur</option>
+                </select>
+            </div>
+
+            <div class="input-item hidden replace">
+                <label>Replace With</label>
+                <input type="text" value="" placeholder="Replacement word...">
+            </div>
+        </div>
+        <!-- Repeat the above structure for each keyword row -->
+    </div>
+
+    <div>
+        <button class="add-keyword">Add Another Keyword</button>
+    </div>
+
+    <div id="status"></div>
+    <button id="save">Save</button>
+
+    <script src="opt.js"></script>
+</body>
+</html>
