@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('.keyword-row').remove();
         }
 
-        var existingKeywords = document.querySelectorAll('.keyword-row .keyword input');
+        /*var existingKeywords = document.querySelectorAll('.keyword-row .keyword input');
         for (var i = 0; i < existingKeywords.length; i++) {
             if (existingKeywords[i].value.toLowerCase() === obj.keyword.toLowerCase()) {
                 alert('Keyword already exists!');
                 return; // Don't add duplicate keywords
             }
-        }
+        }*/
 
         var newRow = document.createElement('div');
         newRow.className = 'keyword-row';
